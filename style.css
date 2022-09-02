@@ -33,7 +33,12 @@ body {
   border: none
 }
 
-#todoUl {
+#todoList-el {
+  margin-bottom: 15px;
+}
+
+#todoLi {
   list-style: none;
   padding-left: 10px;
+  margin: 5px;
 }
