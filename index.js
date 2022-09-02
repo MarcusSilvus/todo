@@ -8,6 +8,7 @@
 // display completed items
 
 let items = []
+id = 0
 
 const enterKey = document.querySelector("#newItem-el")
 const newItemEl = document.getElementById("newItem-el")
@@ -16,25 +17,25 @@ const todoListEl = document.getElementById("todoList-el")
 const removeBtnEl = document.getElementById("removeBtn-el")
 //let item = document.getElementById("item")
 
+function arrPush() {
+  items.push(newItemEl.value)
+  console.log(items)
+  render()
+  newItemEl.value = ""
+  id++
+}
 
 
 addBtnEl.addEventListener("click", function() {
-  if(newItemEl.value){
-    items.push(newItemEl.value)
-    console.log(items)
-    render()
-    newItemEl.value = ""
-    console.log(newItemEl.value)
-  }
+  if(newItemEl.value.trim() != ""){
+    arrPush()
+  } 
 })
 
 enterKey.addEventListener("keyup", (e) => {
-  if(newItemEl.value){
+  if(newItemEl.value.trim() != ""){
     if (e.keyCode === 13) {
-      items.push(newItemEl.value)
-      console.log(items)
-      render()
-      newItemEl.value = ""
+      arrPush()
     }
   }
 })
@@ -45,7 +46,7 @@ function render() {
     listItems += `
         <li id="todoLi">
           <label for="item"> 
-            <input type="checkbox" id="item" name="item"> ${items[i]} 
+            <input type="checkbox" id="${items.indexOf(items[i])}" name="item"> ${items[i]} 
           </label>
         </li>
       `
@@ -56,5 +57,6 @@ function render() {
 // when button is pushed, item disappears
 removeBtnEl.addEventListener("click", function() {
   const item = document.querySelector("#item")
-  
+  console.log(item.clicked)
 })
+
