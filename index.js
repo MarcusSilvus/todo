@@ -56,7 +56,10 @@ function render() {
 
 // when button is pushed, item disappears
 removeBtnEl.addEventListener("click", function() {
-  const item = document.querySelector("#item")
-  console.log(item.clicked)
+  // need to figure out how to return the index number when checked
+  // need to figure out how to delete an index location based off array position
+  //const item = document.querySelector("#item")
+  console.log(items[i])
+  
 })
 
