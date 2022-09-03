@@ -46,7 +46,7 @@ function render() {
     listItems += `
         <li id="todoLi">
           <label for="item"> 
-            <input type="checkbox" id="${items.indexOf(items[i])}" name="item"> ${items[i]} 
+            <input type="checkbox" id="li-${items.indexOf(items[i])}" name="item"> ${items[i]} 
           </label>
         </li>
       `
@@ -54,12 +54,26 @@ function render() {
   todoListEl.innerHTML = listItems
 }
 
+
 // when button is pushed, item disappears
 removeBtnEl.addEventListener("click", function() {
   // need to figure out how to return the index number when checked
   // need to figure out how to delete an index location based off array position
-  //const item = document.querySelector("#item")
-  console.log(items[i])
+  
+
+  for (let i = 0; i < items.length; i++) {
+    
+    const item = document.querySelector(`#li-${items.indexOf(items[i])}`)
+    let index = items.indexOf(items[i])
+    if (item.checked) { 
+      items.splice(index, 1)
+    }  
+  }
+    
+
+  
+
+  render() // render to refresh the list
   
 })
 
