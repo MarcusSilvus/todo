@@ -57,11 +57,11 @@ function render() {
 // when button is pushed, item disappears
 removeBtnEl.addEventListener("click", function() {
   
-  for (let i = 0; i < items.length; i++) {
-    
+  for (let i = items.length - 1; i >= 0 ; i--) {
     const item = document.querySelector(`#li-${items.indexOf(items[i])}`)
-    let index = items.indexOf(items[i])
+
     if (item.checked) { 
+      let index = items.indexOf(items[i])
       items.splice(index, 1)
     }  
   }
