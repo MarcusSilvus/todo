@@ -54,13 +54,9 @@ function render() {
   todoListEl.innerHTML = listItems
 }
 
-
 // when button is pushed, item disappears
 removeBtnEl.addEventListener("click", function() {
-  // need to figure out how to return the index number when checked
-  // need to figure out how to delete an index location based off array position
   
-
   for (let i = 0; i < items.length; i++) {
     
     const item = document.querySelector(`#li-${items.indexOf(items[i])}`)
@@ -70,10 +66,6 @@ removeBtnEl.addEventListener("click", function() {
     }  
   }
     
-
-  
-
-  render() // render to refresh the list
-  
+  render() // render to refresh the list 
 })
 
